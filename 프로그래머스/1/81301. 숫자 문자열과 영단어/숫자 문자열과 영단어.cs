@@ -1,24 +1,21 @@
 using System;
 
 public class Solution {
-    public int solution(string s)
-    {
-        string[] numType = new string[10] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    public int solution(string s) {
+        string[] numbers = new string[10] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         int answer = 0;
         int index = -1;
         
-        for (int i = 0; i < numType.Length; i++)
+        for(int i=0; i<numbers.Length; i++)
         {
-            index = s.IndexOf(numType[i]);
-            if (index != -1)
+            index=s.IndexOf(numbers[i]);
+            if(index!=-1)
             {
-                answer += i;
-                s = s.Replace(numType[i],i.ToString());
+                s=s.Replace(numbers[i], i.ToString());
             }
         }
 
-        int.TryParse(s, out answer);
-        Console.Write(answer);
+        answer = int.Parse(s);
         return answer;
     }
 }
